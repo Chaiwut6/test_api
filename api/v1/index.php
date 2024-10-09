@@ -24,8 +24,6 @@ $app->setBasePath('/test_api/api/v1');
 $authMiddleware = function (Request $request, RequestHandler $handler) {
     $headers = $request->getHeaders();
     $response = new \Slim\Psr7\Response();
-    // echo $headers['Authorization'][0];
-    // exit;
     if (isset($headers['Authorization'][0])) {
         $db = new DbHandler();
         $api_key = $headers['Authorization'][0];
